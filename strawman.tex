@@ -1,0 +1,61 @@
+\documentclass[]{article}
+\usepackage[a4paper]{geometry}
+\usepackage{tikz}
+\usepackage{varwidth}
+\usetikzlibrary{%
+	calc,
+	backgrounds
+}
+
+\pagestyle{empty}
+\begin{document}
+
+\colorlet{border}{orange}
+
+\begin{tikzpicture}[remember picture,overlay,
+block/.style={
+  draw, 
+  fill=white, 
+  anchor=west,
+  minimum height=1cm,
+  rounded corners 
+  }, 
+font=\small
+]
+    \node[inner sep=0] at (current page.center)
+		{\includegraphics[width=\paperwidth,height=\paperheight]{vitruvian-man-lg.jpg}};
+	\def\width{6}
+	\def\height{4}
+	\node[block,draw=border,align=left] at ($(current page.north) + (-\width * .5, -3)$) {%
+		\begin{varwidth}{15em}
+			{\large \hfill Name Your Segment \hfill} \\ \\ A whole whole lot of text ... words, words, words ...
+		\end{varwidth}
+	};
+	\node[block,draw=border,align=left] at ($(current page.north west) + (1,-8)$) {%
+		\begin{varwidth}{15em}
+			{\large \hfill Definers \hfill} \\ \\ this is more text ... 
+			 and the text just keeps going, and going, annd going ...
+		\end{varwidth}
+	}; 
+	\node[block,draw=border,align=left] at ($(current page.north east) + (-1 - \width,-8)$){%
+		\begin{varwidth}{15em}
+			{\large \hfill Context \hfill} \\ \\
+			and this is some more stuff, most certainly worth reading over and over ... 
+		\end{varwidth}
+	}; 
+	\node[block,draw=border,align=left] at ($(current page.south west) + (1, \height + 8)$){%
+		\begin{varwidth}{15em}
+			{\large \hfill Descriptors \hfill} \\ \\
+			and this is some more stuff, most certainly worth reading over and over ... 
+		\end{varwidth}
+	}; 
+	\node[block,draw=border,align=left] at ($(current page.south east) + (-1 - \width, \height + 8)$){%
+		\begin{varwidth}{15em}
+			{\large \hfill Compatibility \hfill} \\ \\
+			and this is some more stuff, most certainly worth reading over and over ... 
+		\end{varwidth}
+	}; 
+\end{tikzpicture}
+
+\end{document}
+
